@@ -27,6 +27,7 @@ function Main(input: string): void {
   const H: number[] = lines[1].split(" ").map(Number); // H = [ 2, 3, 2, 5, 3 ]
 
   let count: number = 0;
+  // @HACK すべての要素をチェックしているのは美しくない。
   H.forEach((hand) => {
     if (M >= 0) M -= hand;
     if (M >= 0) count++;
@@ -51,6 +52,7 @@ function Main(input: string): void {
   const lines: string[] = input.split("\n"); // [ 'AtCoder' ]
   const S: string = lines[0]; // 'AtCoder'
   // @see https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/match
+  // @HACK: 文字列の大文字と小文字の数を取得する処理は関数化したい。
   const upperCount: number = (S.match(/[A-Z]/g) || []).length; // 2 [ 'A', 'C' ]
   const lowerCount: number = (S.match(/[a-z]/g) || []).length; // 5 [ 't', 'o', 'd', 'e', 'r' ]
 
